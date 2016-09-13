@@ -1,10 +1,11 @@
-cask :v1 => 'puzzles' do
+cask 'puzzles' do
   version :latest
   sha256 :no_check
 
   url 'http://www.chiark.greenend.org.uk/~sgtatham/puzzles/Puzzles.dmg'
+  name 'Simon Tatham\'s Portable Puzzle Collection'
   homepage 'http://www.chiark.greenend.org.uk/~sgtatham/puzzles/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  license :mit
 
   app 'Puzzles.app'
 end

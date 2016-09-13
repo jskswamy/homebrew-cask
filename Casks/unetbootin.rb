@@ -1,9 +1,11 @@
-cask :v1 => 'unetbootin' do
-  version '608'
-  sha256 '6348a25607b08426759063a77719b208f3efef3cf0721c3dbcc521b32e6a5ad5'
+cask 'unetbootin' do
+  version '625'
+  sha256 '4568b7b0cef1c240a16b6e03cb5f2cf19f50385645abd82c9206db7aff7d9ddf'
 
-  url "http://downloads.sourceforge.net/sourceforge/unetbootin/unetbootin-mac-#{version}.zip"
-  homepage 'http://unetbootin.sourceforge.net/'
+  # launchpad.net/unetbootin was verified as official when first introduced to the cask
+  url "http://launchpad.net/unetbootin/trunk/#{version}/+download/unetbootin-mac-#{version}.dmg"
+  name 'UNetbootin'
+  homepage 'https://unetbootin.github.io/'
   license :gpl
 
   app 'unetbootin.app'

@@ -1,8 +1,9 @@
-cask :v1 => 'fritzing' do
-  version '0.9.1b'
-  sha256 '907d7ad09b815f66b666407c932bc8c38e1582a0362fb1daf0d243f944cd2351'
+cask 'fritzing' do
+  version '0.9.3b'
+  sha256 'a057ed849b842540b98a68ab2cb996e22b482278706dd2f8da21d1bccf70513f'
 
-  url "http://fritzing.org/download/#{version}/mac-os-x-105/Fritzing-#{version}_1.dmg"
+  url "http://fritzing.org/download/#{version}/mac-os-x-105/Fritzing#{version}.dmg"
+  name 'Fritzing'
   homepage 'http://fritzing.org/'
   license :gpl
 

@@ -1,6 +1,6 @@
-cask :v1 => 'beyond-compare' do
-  version '4.0.5.19480'
-  sha256 'e829feb875374e3212d10d925e5976ae816c917257673861896f624b3ca0381e'
+cask 'beyond-compare' do
+  version '4.1.6.21095'
+  sha256 'ecbcf867986ab4244ca4b0c5345f087bbeb0cd84dbeb8e578145218d72d981c1'
 
   url "http://www.scootersoftware.com/BCompareOSX-#{version}.zip"
   name 'Beyond Compare'
@@ -13,10 +13,10 @@ cask :v1 => 'beyond-compare' do
     suppress_move_to_applications
   end
 
-  zap :delete => [
-                  '~/Library/Application Support/Beyond Compare',
-                  '~/Library/Caches/com.apple.helpd/Generated/com.ScooterSoftware.BeyondCompare.help',
-                  '~/Library/Caches/com.ScooterSoftware.BeyondCompare',
-                  '~/Library/Saved Application State/com.ScooterSoftware.BeyondCompare.savedState',
-                 ]
+  zap delete: [
+                '~/Library/Application Support/Beyond Compare',
+                '~/Library/Caches/com.apple.helpd/Generated/com.ScooterSoftware.BeyondCompare.help',
+                '~/Library/Caches/com.ScooterSoftware.BeyondCompare',
+                '~/Library/Saved Application State/com.ScooterSoftware.BeyondCompare.savedState',
+              ]
 end

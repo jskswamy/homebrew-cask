@@ -1,13 +1,13 @@
-cask :v1 => 'sqleditor' do
-  version '2.7'
-  sha256 '38f9d93d0ff7d680eff64949601ee4693eb91c38f89bd2f42a7e86809b36e9b5'
+cask 'sqleditor' do
+  version '3.0.2'
+  sha256 '44ce93da4b862cb9a911b6eedbbf644c504994bb76c0f8eb0c9f7291d1bf98a2'
 
-  url "https://www.malcolmhardie.com/sqleditor/releases/#{version}/SQLEditor-2-7.zip"
+  url "https://www.malcolmhardie.com/sqleditor/releases/#{version}/SQLEditor-#{version.dots_to_hyphens}.zip"
   appcast 'https://www.malcolmhardie.com/sqleditor/appcast/sq2release.xml',
-          :sha256 => '927ddc279f600c4716b68fe0fc568c879ba4fb10a4a9cc19b535767994d00f65'
+          checkpoint: '2e62bb0acf4a3e268a7c1fb20e338522883de41c1a7501e7ad83f4f71f44239f'
   name 'SQLEditor'
-  homepage 'http://www.malcolmhardie.com/sqleditor/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  homepage 'https://www.malcolmhardie.com/sqleditor/'
+  license :commercial
 
   app 'SQLEditor.app'
 end

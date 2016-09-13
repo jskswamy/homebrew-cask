@@ -1,15 +1,18 @@
-cask :v1 => 'duet' do
-  version '1.2.5'
-  sha256 'd3c178b6b07347fcacc62396706f4f6b9efbbc8d8eb7b0b5f003df0406d59143'
+cask 'duet' do
+  version '1.5.9.6'
+  sha256 '54464c6c20a0b208fea8096e41aafe9aa4a30887f5327df0f4bd34ee46e152cb'
 
-  # devmate.com is the official download host per the vendor homepage
-  url "http://dl.devmate.com/com.kairos.duet/#{version}/1422514272/duet-#{version}.zip"
+  # d2ycb980mbr5lq.cloudfront.net was verified as official when first introduced to the cask
+  url "https://d2ycb980mbr5lq.cloudfront.net/#{version.dots_to_underscores}/duet-#{version.dots_to_hyphens}.zip"
+  appcast 'https://updates.duetdisplay.com/checkMacUpdates',
+          checkpoint: '0fd19ed1b7880600902c308a5fbf1f727d745b87540a00e2c7da902ed3dc44e9'
   name 'Duet'
   homepage 'http://www.duetdisplay.com/'
-  license :unknown
+  license :gratis
+
+  auto_updates true
 
   app 'duet.app'
 
-  uninstall :kext => 'com.karios.driver.DuetDisplay',
-            :delete => '/usr/libexec/coreduetd'
+  uninstall kext: 'com.karios.driver.DuetDisplay'
 end

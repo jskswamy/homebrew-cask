@@ -1,18 +1,14 @@
-cask :v1 => 'eclipse-platform' do
-  version '4.4.1-201409250400'
+cask 'eclipse-platform' do
+  version '4.6-201606061100'
+  sha256 '39df3c9acfb294a7f18485bc6f1cde4a5d10a900db987a32aa510548c9a986bd'
 
-  if Hardware::CPU.is_32_bit?
-    sha256 '99d1f13d65a54c008905c0c0fd7c306c1cce1adc2208b8e0546c60b084f976dd'
-    url "http://download.eclipse.org/eclipse/downloads/drops#{version.to_i}/R-#{version}/eclipse-SDK-#{version.sub(%r{-.*},'')}-macosx-cocoa.tar.gz"
-  else
-    sha256 'a269e0f129ebaba6522b4a4d2cd07950b0634d44c353a2558106ca8289fc8463'
-    url "http://download.eclipse.org/eclipse/downloads/drops#{version.to_i}/R-#{version}/eclipse-SDK-#{version.sub(%r{-.*},'')}-macosx-cocoa-x86_64.tar.gz"
-  end
-
-  name 'Eclipse'
+  url "http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops#{version.major}/R-#{version}/eclipse-platform-#{version.sub(%r{-.*}, '')}-macosx-cocoa-x86_64.tar.gz&r=1"
   name 'Eclipse SDK'
-  homepage 'http://eclipse.org'
+  homepage 'https://eclipse.org'
   license :eclipse
 
-  app 'eclipse/Eclipse.app'
+  depends_on macos: '>= :leopard'
+  depends_on arch: :x86_64
+
+  app 'Eclipse.app'
 end

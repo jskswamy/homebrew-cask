@@ -1,14 +1,14 @@
-cask :v1 => 'ccmenu' do
-  version '1.8'
-  sha256 'e2d36083388b4c68c1dff396393f4d3b2df614ff09deca1fdd9bbba286f7faa5'
+cask 'ccmenu' do
+  version '12.1'
+  sha256 '3b9f226f57159bf395a4e76cd958f1f90c7a5c9b181c16fad64a96cff8f19c2e'
 
-  # sourceforge.net is the official download host per the vendor homepage
-  url "http://downloads.sourceforge.net/project/ccmenu/CCMenu/#{version}/ccmenu-#{version}-b.dmg"
-  appcast 'http://ccmenu.sourceforge.net/update-stable.xml',
-          :sha256 => 'a72951f416906d309cb7ec8d233bf5546540641efa99332e0f1bdde119b51cac'
+  # github.com/erikdoe/ccmenu was verified as official when first introduced to the cask
+  url "https://github.com/erikdoe/ccmenu/releases/download/v#{version}/CCMenu.app.zip"
+  appcast 'https://github.com/erikdoe/ccmenu/releases.atom',
+          checkpoint: '359155ebbd8e2ed24cfd5d3af31cc0ceebb7b44d5f63bc52a74b45e261bd8035'
   name 'CCMenu'
   homepage 'http://ccmenu.org/'
-  license :bsd
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
 
   app 'CCMenu.app'
 end

@@ -1,12 +1,11 @@
-cask :v1 => 'navicat-for-oracle' do
-  version '11.1.7'
-  sha256 '91c1fd2ab4af6d34dc669b351e37160a3a53626162576cde65a7a4598e226a50'
+cask 'navicat-for-oracle' do
+  version '11.2.13'
+  sha256 '658d835ff94d333b189b22708e6cb5c028dc8fd28a837331bb6ca7a23d8a0faa'
 
-  url "http://download.navicat.com/download/navicat#{version.sub(%r{^(\d+)\.(\d+).*},'\1\2')}_ora_en.dmg"
+  url "http://download.navicat.com/download/navicat#{version.major_minor.no_dots}_ora_en.dmg"
   name 'Navicat for Oracle'
-  homepage 'http://www.navicat.com/products/navicat-for-oracle'
+  homepage 'https://www.navicat.com/products/navicat-for-oracle'
   license :commercial
-  tags :vendor => 'Navicat'
 
   app 'Navicat for Oracle.app'
 end

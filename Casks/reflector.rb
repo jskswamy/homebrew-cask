@@ -1,12 +1,15 @@
-cask :v1 => 'reflector' do
-  version :latest
-  sha256 :no_check
+cask 'reflector' do
+  version '2.5.2'
+  sha256 '292d0ea66dca94122a4e3a9f388c394d64e357567bb24483d8a315a9ffae90fd'
 
-  url 'http://download.airsquirrels.com/Reflector/Mac/Reflector.dmg'
-  appcast 'http://reflectorapp.com/updates/reflector.xml'
-  name 'Reflector'
-  homepage 'http://www.airsquirrels.com/reflector/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  url "https://download.airsquirrels.com/Reflector2/Mac/Reflector-#{version}.dmg"
+  appcast 'https://updates.airsquirrels.com/Reflector2/Mac/Reflector2.xml',
+          checkpoint: '740863505d9d5f9ac9ffa28e14d69562407a7245ebfde44a8d09c7da4036cec1'
+  name 'Reflector 2'
+  homepage 'https://www.airsquirrels.com/reflector/'
+  license :commercial
 
-  app 'Reflector.app'
+  depends_on macos: '>= :mountain_lion'
+
+  app 'Reflector 2.app'
 end

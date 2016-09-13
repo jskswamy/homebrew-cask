@@ -1,11 +1,38 @@
-cask :v1 => 'amazon-music' do
-  version '3.6.0.361'
-  sha256 '193bb6880d70a0b8407e0384e56dae10c209e5405a7d8807fdcd5a0368105eef'
+cask 'amazon-music' do
+  version '20160616,2001549f34'
+  sha256 'd13a1ac00bdaf03a982231f27a9067610fb4675990db058ab15ddec055ba9569'
 
-  url 'https://images-na.ssl-images-amazon.com/images/G/01/digital/music/morpho/installers/20141015/224318ebff/AmazonMusicInstaller.dmg'
+  # ssl-images-amazon.com was verified as official when first introduced to the cask
+  url "https://images-na.ssl-images-amazon.com/images/G/01/digital/music/morpho/installers/#{version.before_comma}/#{version.after_comma}/AmazonMusicInstaller.dmg"
   name 'Amazon Music'
-  homepage 'https://www.amazon.com/gp/feature.html/ref=dm_mo_cpw_fb_lm?docId=1001067901'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  homepage 'https://www.amazon.com/gp/feature.html/?ie=UTF8&docId=1001067901'
+  license :gratis
 
-  installer :manual => 'Amazon Music Installer.app'
+  installer script: 'Amazon Music Installer.app/Contents/MacOS/osx-intel',
+            args:   ['--unattendedmodeui', 'none'],
+            sudo:   true
+
+  uninstall quit:      [
+                         'com.amazon.music',
+                         'com.amazon.music-renderer',
+                       ],
+            delete:    [
+                         '/Applications/Amazon Music.app',
+                       ],
+            launchctl: 'com.amazon.music'
+
+  zap delete: [
+                '~/Library/Preferences/com.amazon.music.plist',
+                '~/Library/Application Support/Amazon Music/',
+              ]
+
+  caveats <<-EOS.undent
+    If the app won't launch after installation, try
+
+      brew cask zap #{token}
+      brew cask install #{token}
+
+    then re-launch the app. You can read more about the issue on Amazon's customer forums
+    http://www.amazon.com/App-wont-open-OS-Yosemite/forum/FxZLHSK3AW6KZU/Tx1EJYW65OQ5TZS
+  EOS
 end

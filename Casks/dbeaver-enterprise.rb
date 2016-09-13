@@ -1,16 +1,11 @@
-cask :v1 => 'dbeaver-enterprise' do
-  version '3.1.2'
+cask 'dbeaver-enterprise' do
+  version '3.7.3'
+  sha256 '171f9ca1883c2159c0cab20077a60dc5a0778535490d6b06de1477f442f9943f'
 
-  if Hardware::CPU.is_32_bit?
-    sha256 '69e3fbb77f6dfa4039f2535451849ae3811e0430764bd507ecc5df3cd7eb28ba'
-    url "http://dbeaver.jkiss.org/files/dbeaver-#{version}-ee-macosx.cocoa.x86.zip"
-  else
-    sha256 'f868445eecae115245b5d0882917e548c1a799c3ea8e6e47c551557d62a857ff'
-    url "http://dbeaver.jkiss.org/files/dbeaver-#{version}-ee-macosx.cocoa.x86_64.zip"
-  end
-
+  url "http://dbeaver.jkiss.org/files/#{version}/dbeaver-ee-#{version}-macos.dmg"
+  name 'DBeaver Enterprise Edition'
   homepage 'http://dbeaver.jkiss.org/'
   license :oss
 
-  app 'dbeaver/dbeaver.app'
+  app 'Dbeaver.app'
 end

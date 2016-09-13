@@ -1,9 +1,12 @@
-cask :v1 => 'sweet-home3d' do
-  version '4.5'
-  sha256 'f1d341046fbf066d92cc625b44bb201e905017c72e9755151587a01539f5242b'
+cask 'sweet-home3d' do
+  version '5.2'
+  sha256 'd9450ac52ead59cd24a69616aa7d613a568d841295f56bee3a993c4ed066e2da'
 
-  # sourceforge.net is the official download host per the vendor homepage
-  url "http://downloads.sourceforge.net/project/sweethome3d/SweetHome3D/SweetHome3D-#{version}/SweetHome3D-#{version}-macosx.dmg"
+  # sourceforge.net/sweethome3d was verified as official when first introduced to the cask
+  url "https://downloads.sourceforge.net/sweethome3d/SweetHome3D/SweetHome3D-#{version}/SweetHome3D-#{version}-macosx.dmg"
+  appcast 'https://sourceforge.net/projects/sweethome3d/rss?path=/SweetHome3D',
+          checkpoint: 'be55e729ad642b6f7886650d8c56eb653c74723052bce02ac8b6e2ec289663bb'
+  name 'Sweet Home 3D'
   homepage 'http://www.sweethome3d.com/'
   license :gpl
 

@@ -1,14 +1,14 @@
-cask :v1 => 'myo-connect' do
-  version '0.8.0'
-  sha256 'eecaff75b7e4d3018c9e9d4edc58f3186e58f21c9a2d4589eb8f2f5bd1313794'
+cask 'myo-connect' do
+  version '1.0.1'
+  sha256 '50cddbbbd5a9d9126e4d3abcc0112dcec0b304dbf847ef570395650cde511195'
 
-  # amazonaws.com is the official download host per the vendor homepage
+  # s3.amazonaws.com/thalmicdownloads was verified as official when first introduced to the cask
   url "https://s3.amazonaws.com/thalmicdownloads/mac/#{version}/MyoConnect.dmg"
+  name 'Thalmic Labs Myo Connect'
   homepage 'https://developer.thalmic.com'
   license :gratis
-  tags :vendor => 'Thalmic Labs'
 
   app 'Myo Connect.app'
 
-  zap :delete=> '~/Library/Preferences/com.thalmic.Myo Connect.plist'
+  zap delete: '~/Library/Preferences/com.thalmic.Myo Connect.plist'
 end

@@ -1,13 +1,15 @@
-cask :v1 => 'qlvideo' do
-  version '1.81'
-  sha256 'e901bf38a02c630dfddb34eb31a897155d7e16e503dd44ec9e6c8fed09ee62bb'
+cask 'qlvideo' do
+  version '1.87'
+  sha256 '0f21d994715fa409a858b5f04a76708975b4109dd9ac4e820dbccb7caaf61ded'
 
-  url "https://github.com/Marginal/QLVideo/releases/download/rel-#{version.gsub('.', '')}/QLVideo_#{version.gsub('.', '')}.pkg"
+  url "https://github.com/Marginal/QLVideo/releases/download/rel-#{version.no_dots}/QLVideo_#{version.no_dots}.pkg"
+  appcast 'https://github.com/Marginal/QLVideo/releases.atom',
+          checkpoint: 'ea20ff8a5722e2875766d1d469ec5dea161fbf5cfcf3c15169fdf4c1b6a519ee'
   name 'QuickLook Video'
   homepage 'https://github.com/Marginal/QLVideo'
   license :gpl
 
-  pkg "QLVideo_#{version.gsub('.', '')}.pkg"
+  pkg "QLVideo_#{version.no_dots}.pkg"
 
-  uninstall :pkgutil => 'uk.org.marginal.qlvideo'
+  uninstall pkgutil: 'uk.org.marginal.qlvideo'
 end

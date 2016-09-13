@@ -1,14 +1,14 @@
-cask :v1 => 'ngrok' do
-  version :latest
-  sha256 :no_check
+cask 'ngrok' do
+  version '2.1.3,4VmDzA7iaHb'
+  sha256 '863ebc05824329d288977d275d2ab90e554780a053019ae2bbadb317a1abf607'
 
-  url 'https://dl.ngrok.com/darwin_amd64/ngrok.zip'
+  # bin.equinox.io was verified as official when first introduced to the cask
+  url "https://bin.equinox.io/c/#{version.after_comma}/ngrok-stable-darwin-amd64.zip"
   name 'ngrok'
   homepage 'https://ngrok.com/'
-  license :apache
+  license :freemium
 
   binary 'ngrok'
 
-  # todo verify that this does not contain user-created content
-  # zap :delete => '~/.ngrok'
+  zap delete: '~/.ngrok2'
 end

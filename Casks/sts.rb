@@ -1,16 +1,22 @@
-cask :v1 => 'sts' do
-  version '3.5.1'
-  sha256 'f71274c9f946d2af6bbd12e811d7c8d371d3031415839b9aa6ed35347d2980f8'
+cask 'sts' do
+  version '3.8.1.RELEASE'
+  sha256 'e54ca0ea1c1348789629b32b0b2ab9bb9c181606449fdc5b023a36919d6df8e7'
 
   module Utils
-    def self.based_on_eclipse
-      '4.3.2'   # find eclipse version at http://spring.io/tools/sts/all
+    def self.eclipse_version
+      '4.6' # find eclipse version at https://spring.io/tools/sts/all
+    end
+
+    def self.eclipse_version_major_minor
+      eclipse_version.split('.').slice(0, 2).join('.')
     end
   end
 
-  url "http://download.springsource.com/release/STS/#{version}/dist/e#{Utils.based_on_eclipse.gsub(/\.\d$/, '')}/spring-tool-suite-#{version}.RELEASE-e#{Utils.based_on_eclipse}-macosx-cocoa-x86_64-installer.dmg"
-  homepage 'http://spring.io/tools/sts'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  # springsource.com was verified as official when first introduced to the cask
+  url "https://dist.springsource.com/release/STS/#{version}/dist/e#{Utils.eclipse_version_major_minor}/spring-tool-suite-#{version}-e#{Utils.eclipse_version}-macosx-cocoa-x86_64.tar.gz"
+  name 'Spring Tool Suite'
+  homepage 'https://spring.io/tools/sts'
+  license :eclipse
 
-  installer :manual => "Installer - Spring Tool Suite #{version}.RELEASE.app"
+  app 'sts-bundle/STS.app'
 end

@@ -1,14 +1,13 @@
-cask :v1 => 'epic' do
-  version :latest
-  sha256 :no_check
+cask 'epic' do
+  version '49.0.2575.1'
+  sha256 'a4151a95705685257c7b38a1c6d6496a9a82743c49bdc3ed9c12957cf714e67b'
 
-  # kxcdn.com is the official download host per the vendor homepage
-  url 'https://macepic-cbe.kxcdn.com/Alt/Epic.dmg'
-  name 'Epic'
-  name 'Epic Privacy Browser'
+  # s3.amazonaws.com/epicprivacybrowser was verified as official when first introduced to the cask
+  url "https://s3.amazonaws.com/epicprivacybrowser/mac/Epic_OSX_#{version}.zip"
   appcast 'https://updates.epicbrowser.com/mac_updates/appcast.xml',
-          :sha256 => '4249b7347d6edd78f8b421c8838c006731ab03477a6d17bd459cadb9519f4dc5'
-  homepage 'http://www.epicbrowser.com'
+          checkpoint: 'baa4248683b2bde4cb5124bada0f5f7330ed865ef266ef7a7014729269debdf3'
+  name 'Epic Privacy Browser'
+  homepage 'https://www.epicbrowser.com/'
   license :gratis
 
   app 'Epic.app'

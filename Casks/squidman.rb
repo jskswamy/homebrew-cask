@@ -1,10 +1,11 @@
-cask :v1 => 'squidman' do
-  version '3.51'
-  sha256 '0bbbe1c8f26902450e62fe47e17f68f278b033355311ef295d52951feb3b6820'
+cask 'squidman' do
+  version '3.8'
+  sha256 'dcc1b304b9b4782c20ab323adab8f21be0b82b433f96afa82e3349b82bbb761b'
 
   url "http://squidman.net/resources/downloads/SquidMan#{version}.dmg"
+  name 'SquidMan'
   homepage 'http://squidman.net/squidman/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  license :gratis
 
   app 'SquidMan.app'
 end

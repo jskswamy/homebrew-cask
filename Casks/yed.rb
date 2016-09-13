@@ -1,10 +1,13 @@
-cask :v1 => 'yed' do
-  version '3.14'
-  sha256 '6978e180d6063e22ab0460742915b20d1f3419d284a7815041d28e318764f8ad'
+cask 'yed' do
+  version '3.16.1'
+  sha256 'c933c240194f910f1fbe62b2ae9c160327290c075620d6d0adc683b6c1db7d6b'
 
-  url "http://live.yworks.com/yed-downloads/yEd-#{version}_with-JRE8.dmg"
-  homepage 'http://www.yworks.com/en/products_yed_about.html'
-  license :unknown # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  url "https://www.yworks.com/products/yed/demo/yEd-#{version}_with-JRE8.dmg"
+  name 'yWorks yEd'
+  homepage 'https://www.yworks.com/en/products/yfiles/yed/'
+  license :gratis
+
+  depends_on macos: '>= 10.8'
 
   app 'yEd.app'
 end

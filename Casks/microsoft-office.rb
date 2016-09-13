@@ -1,52 +1,48 @@
-cask :v1 => 'microsoft-office' do
+cask 'microsoft-office' do
   version :latest
   sha256 :no_check
 
-  url 'http://officecdn.microsoft.com/pr/MacOffice2011/en-US/MicrosoftOffice2011.dmg'
-  homepage 'http://www.microsoft.com/mac'
+  url 'https://officecdn.microsoft.com/pr/C1297A47-86C4-4C1F-97FA-950631F94777/OfficeMac/Microsoft_Office_2016_Installer.pkg'
+  name 'Microsoft Office 2016'
+  homepage 'https://www.microsoft.com/mac'
   license :commercial
 
-  pkg 'Office Installer.pkg'
+  pkg 'Microsoft_Office_2016_Installer.pkg'
 
-  uninstall :pkgutil   => 'com.microsoft.office.*',
-            :launchctl => 'com.microsoft.office.licensing.helper'
-  zap       :pkgutil   => [
-                           'com.microsoft.mau.all.autoupdate.*',
-                           'com.microsoft.merp.all.errorreporting.*'
-                          ],
-            :delete    => [
-                           '/Library/LaunchDaemons/com.microsoft.office.licensing.helper.plist',
-                           '/Library/PrivilegedHelperTools/com.microsoft.office.licensing.helper',
-                           '/Library/Application Support/Microsoft/MAU2.0',
-                           '/Library/Application Support/Microsoft/MERP2.0',
-                           '/Library/Preferences/com.microsoft.Excel.plist',
-                           '/Library/Preferences/com.microsoft.Outlook.plist',
-                           '/Library/Preferences/com.microsoft.PlayReady.plist',
-                           '/Library/Preferences/com.microsoft.Powerpoint.plist',
-                           '/Library/Preferences/com.microsoft.Word.plist',
-                           '/Library/Preferences/com.microsoft.office.licensing.plist',
-                           '/Library/Preferences/com.microsoft.outlook.databasedaemon.plist',
-                           '/Library/Preferences/com.microsoft.outlook.officereminders.plist',
-                           '~/Library/Application Support/Microsoft/Office',
-                           '~/Library/Preferences/com.microsoft.Excel.plist',
-                           '~/Library/Preferences/com.microsoft.Outlook.plist',
-                           '~/Library/Preferences/com.microsoft.Powerpoint.plist',
-                           '~/Library/Preferences/com.microsoft.Word.plist',
-                           '~/Library/Preferences/com.microsoft.autoupdate2.plist',
-                           '~/Library/Preferences/com.microsoft.error_reporting.plist',
-                           '~/Library/Preferences/com.microsoft.office.plist',
-                           '~/Library/Preferences/com.microsoft.office.setupassistant.plist',
-                           '~/Library/Preferences/com.microsoft.outlook.databasedaemon.plist',
-                           '~/Library/Preferences/com.microsoft.outlook.office_reminders.plist',
-                           '~/Library/Preferences/com.microsoft.outlook.officereminders.plist',
-                           '~/Documents/Microsoft User Data/Microsoft',
-                           '~/Documents/Microsoft User Data/Office 2011 Identities',
-                           '~/Documents/Microsoft User Data/Outlook Sound Sets',
-                           '~/Documents/Microsoft User Data/Saved Attachments'
-                          ],
-            :rmdir     => [
-                           '/Library/Application Support/Microsoft',
-                           '~/Library/Application Support/Microsoft',
-                           '~/Documents/Microsoft User Data'
-                          ]
+  uninstall pkgutil:   [
+                         'com.microsoft.package.*',
+                         'com.microsoft.pkg.licensing',
+                       ],
+            launchctl: [
+                         'com.microsoft.autoupdate.helpertool',
+                         'com.microsoft.office.licensing.helper',
+                         'com.microsoft.office.licensingV2.helper',
+                       ]
+
+  zap       delete: [
+                      '~/Library/Application Scripts/com.microsoft.Excel',
+                      '~/Library/Application Scripts/com.microsoft.Office365ServiceV2',
+                      '~/Library/Application Scripts/com.microsoft.onenote.mac',
+                      '~/Library/Application Scripts/com.microsoft.Outlook',
+                      '~/Library/Application Scripts/com.microsoft.Powerpoint',
+                      '~/Library/Application Scripts/com.microsoft.Word',
+                      '~/Library/Caches/com.microsoft.autoupdate.fba',
+                      '~/Library/Caches/com.microsoft.autoupdate2',
+                      '~/Library/Caches/Microsoft/uls/com.microsoft.autoupdate.fba',
+                      '~/Library/Caches/Microsoft/uls/com.microsoft.autoupdate2',
+                      '~/Library/Containers/com.microsoft.Excel',
+                      '~/Library/Containers/com.microsoft.Office365ServiceV2',
+                      '~/Library/Containers/com.microsoft.onenote.mac',
+                      '~/Library/Containers/com.microsoft.Outlook',
+                      '~/Library/Containers/com.microsoft.Powerpoint',
+                      '~/Library/Containers/com.microsoft.Word',
+                      '~/Library/Cookies/com.microsoft.autoupdate.fba.binarycookies',
+                      '~/Library/Cookies/com.microsoft.autoupdate2.binarycookies',
+                      '~/Library/Group Containers/UBF8T346G9.ms/com.microsoft.autoupdate2',
+                      '~/Library/Group Containers/UBF8T346G9.Office/com.microsoft.officeprefs.plist',
+                      '~/Library/Preferences/com.microsoft.autoupdate.fba.plist',
+                      '~/Library/Preferences/com.microsoft.Excel.LSSharedFileList.plist',
+                      '~/Library/Saved Application State/com.microsoft.onenote.mac.savedState',
+                      '~/Library/Saved Application State/com.microsoft.Outlook.savedState',
+                    ]
 end

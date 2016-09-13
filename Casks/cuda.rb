@@ -1,19 +1,14 @@
-cask :v1 => 'cuda' do
-  version '6.5.14'
-  sha256 '6cdde2417bedbd889143c5d3f0152fce4088102ecf4ccfa83e9f14a08968fcb7'
+cask 'cuda' do
+  version '7.5.27'
+  sha256 'ff3699703a914ba6f71f76bc412cc4cc2cb8ce6fca435044d8780602b5a32e89'
 
-  url "http://developer.download.nvidia.com/compute/cuda/6_5/rel/installers/cuda_#{version}_mac_64.pkg"
-  name 'CUDA'
+  url "http://developer.download.nvidia.com/compute/cuda/#{version.major_minor}/Prod/local_installers/cuda_#{version}_mac.dmg"
+  name 'Nvidia CUDA'
   homepage 'https://developer.nvidia.com/cuda-zone'
   license :other
-  tags :vendor => 'Nvidia'
 
-  pkg "cuda_#{version}_mac_64.pkg"
+  installer script: 'CUDAMacOSXInstaller.app/Contents/MacOS/CUDAMacOSXInstaller',
+            args:   ['--accept-eula', '--silent']
 
-  uninstall :pkgutil => 'com.nvidia.cuda.*',
-            :kext => 'com.nvidia.CUDA',
-            :delete => [
-                        '/Developer/NVIDIA/CUDA-6.5',
-                        '/usr/local/cuda',
-                       ]
+  uninstall script: "/Developer/NVIDIA/CUDA-#{version.major_minor}/bin/uninstall_cuda_#{version.major_minor}.pl"
 end

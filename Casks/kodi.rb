@@ -1,12 +1,10 @@
-cask :v1 => 'kodi' do
-  version '14.1'
-  sha256 'cf71db03a6878673df95c7983feac4a6d750c9b798553ea19e80d95ba2f5d6c8'
+cask 'kodi' do
+  version '16.1'
+  sha256 '315ec1f3d64f6d5d7b55ecd80f839d0702326f6bbe80b64e94da4ae21ae44bca'
 
-  # xbmc.org is the official download host per the vendor homepage
-  url "http://mirrors.xbmc.org/releases/osx/x86_64/kodi-#{version}-Helix-x86_64.dmg"
+  url "http://mirrors.kodi.tv/releases/osx/x86_64/kodi-#{version}-Jarvis-x86_64.dmg"
   name 'Kodi'
-  name 'XBMC' # former
-  homepage 'http://kodi.tv/'
+  homepage 'https://kodi.tv/'
   license :gpl
 
   app 'Kodi.app'

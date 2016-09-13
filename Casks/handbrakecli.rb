@@ -1,8 +1,9 @@
-cask :v1 => 'handbrakecli' do
-  version '0.10.0'
-  sha256 '84dcc20cffd2cbbe1d7804dbb8dfdb4ce7ce78b2f44ae25a998f18771a9c05f9'
+cask 'handbrakecli' do
+  version '0.10.5'
+  sha256 '7f292422f4e13b59a936bb4e433a9248afaf5dd5f428e5928d54b0dee98a8786'
 
   url "http://download.handbrake.fr/releases/#{version}/HandBrake-#{version}-MacOSX.6_CLI_x86_64.dmg"
+  name 'HandBrake'
   homepage 'https://handbrake.fr'
   license :oss
 

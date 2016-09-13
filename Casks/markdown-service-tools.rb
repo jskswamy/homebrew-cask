@@ -1,11 +1,11 @@
-cask :v1 => 'markdown-service-tools' do
-  version '2.11'
-  sha256 '3a1e3f6950121638e15e6b54ea27f98ae12b08c8c54599cc614635729f539039'
+cask 'markdown-service-tools' do
+  version '2.14'
+  sha256 'd0f48be1acaae6ad46370869501b44fdcc765fbe3f1ca8594a766273fc9c128f'
 
   url "http://cdn3.brettterpstra.com/downloads/MarkdownServiceTools#{version}.zip"
   name 'Markdown Service Tools'
   homepage 'http://brettterpstra.com/projects/markdown-service-tools/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  license :gratis
 
   service "MarkdownServiceTools#{version}/md - Code - Make Code Block.workflow"
   service "MarkdownServiceTools#{version}/md - Convert - HTML to Clipboard.workflow"

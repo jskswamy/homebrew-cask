@@ -1,9 +1,10 @@
-cask :v1 => 'renamer' do
-  version :latest
-  sha256 :no_check
+cask 'renamer' do
+  version '5'
+  sha256 'cd63c92343eb68e62f3873959758c0b5fb6ab0b5583a1a8112ac6b2fd36ce494'
 
-  # creativebe.com is the official download host per the vendor homepage
-  url 'http://creativebe.com/download/renamer'
+  # storage.googleapis.com/incrediblebee was verified as official when first introduced to the cask
+  url "https://storage.googleapis.com/incrediblebee/apps/Renamer-#{version}/Renamer.zip"
+  name 'Renamer'
   homepage 'http://renamer.com'
   license :commercial
 

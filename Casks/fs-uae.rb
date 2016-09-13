@@ -1,11 +1,12 @@
-cask :v1 => 'fs-uae' do
-  version '2.2.3'
-  sha256 '3e949a673fb44abd8c788aa70361315fb7fb389575966dddee89f66fbda354ca'
+cask 'fs-uae' do
+  version '2.6.2'
+  sha256 '1c4e285ac82828d004c900e05b29dc6363eeb5f705524bfaa2bd4e6f57101ace'
 
-  url "http://fs-uae.net/fs-uae/stable/#{version}/fs-uae-plus-#{version}-macosx.tar.gz"
-  homepage 'http://fs-uae.net/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  url "https://fs-uae.net/stable/#{version}/fs-uae-suite_#{version}_macosx.tar.gz"
+  name 'FS-UAE'
+  homepage 'https://fs-uae.net/'
+  license :oss
 
-  app "fs-uae-#{version}-macosx/FS-UAE.app"
-  app "fs-uae-#{version}-macosx/FS-UAE Launcher.app"
+  app 'FS-UAE Arcade.app'
+  app 'FS-UAE Launcher.app'
 end

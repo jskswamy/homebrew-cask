@@ -1,16 +1,18 @@
-cask :v1 => 'devonthink-pro-office' do
-  version '2.8'
-  sha256 '592d2c5e8ce9839102afb7c15eb71147d94006c5710ff91a06c8783bee8ef91b'
+cask 'devonthink-pro-office' do
+  version '2.9.4'
+  sha256 'f24afec571a5f27b07db0f689596bdb08572ac69a906d24709e503162e03b66e'
 
-  # amazonaws.com is the official download host per the vendor homepage
-  url "https://s3.amazonaws.com/DTWebsiteSupport/download/devonthink/#{version}/DEVONthink_Pro_Office.dmg.zip"
-  appcast 'http://www.devon-technologies.com/Sparkle/DEVONthinkProOffice2.xml',
-          :sha256 => '6db814e6797e848696b2c92613cf6764649b7050337842ac57dc8437af1b428e'
+  # amazonaws.com/DTWebsiteSupport was verified as official when first introduced to the cask
+  url "https://s3.amazonaws.com/DTWebsiteSupport/download/devonthink/#{version}/DEVONthink_Pro_Office.app.zip"
+  appcast 'http://www.devon-technologies.com/fileadmin/templates/filemaker/sparkle.php?product=300125739&format=xml',
+          checkpoint: '5315f2b52b0b98d7d3ba56d9cff1308f4e75f3ac0fb6e17be755749da19824ef'
+  name 'DEVONthink Pro Office'
   homepage 'http://www.devontechnologies.com/products/devonthink/devonthink-pro-office.html'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  license :commercial
 
-  container :nested => 'DEVONthink_Pro_Office.dmg'
+  depends_on macos: '>= :mountain_lion'
+
   # Renamed for consistency: app name is different in the Finder and in a shell.
   # Original discussion: https://github.com/caskroom/homebrew-cask/pull/3838
-  app 'DEVONthink Pro.app', :target => 'DEVONthink Pro Office.app'
+  app 'DEVONthink Pro.app', target: 'DEVONthink Pro Office.app'
 end

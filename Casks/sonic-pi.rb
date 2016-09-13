@@ -1,8 +1,8 @@
-cask :v1 => 'sonic-pi' do
-  version :latest
-  sha256 :no_check
+cask 'sonic-pi' do
+  version '2.10.0'
+  sha256 '4539cbd70f1e0d347c27231f741a245551c0d50f10e987761b9b7567ba0d82fe'
 
-  url 'http://sonic-pi.net/app/sonic-pi-mac.dmg'
+  url "http://sonic-pi.net/files/releases/v#{version}/Sonic-Pi-for-Mac-v#{version}.dmg"
   name 'Sonic Pi'
   homepage 'http://sonic-pi.net/'
   license :mit

@@ -1,11 +1,11 @@
-cask :v1 => 'wiznote' do
-  version '2015-01-14'
-  sha256 '5edd3fd654c6168779f89553de970c35038111624ff9a0a4b26dbaa2530b035e'
+cask 'wiznote' do
+  version '2016-07-18'
+  sha256 'a171e87b3b2bd314b5812a576e992fd07eea93233ceeb788da8dc8abb0d063ef'
 
-  # wiz.cn is the official download host per the vendor homepage
   url "http://release.wiz.cn/wiznote-macos-#{version}.dmg"
-  homepage 'http://www.wiznote.com/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  name 'WizNote'
+  homepage 'http://www.wiz.cn/wiznote-mac.html'
+  license :gratis
 
   app 'WizNote.app'
 end

@@ -1,18 +1,24 @@
-cask :v1 => 'little-snitch' do
-  version '3.5.1'
-  sha256 'c743187a5bb8abd36d9d41cc95944b37f6d965f761319f2ffae6d55e8ce45050'
+cask 'little-snitch' do
+  version '3.6.4'
+  sha256 '143070b3d8fd7370aa9c7881d3239efe33f05f4d4413a46e22988dd64f5b5223'
 
-  url "http://www.obdev.at/downloads/littlesnitch/LittleSnitch-#{version}.dmg"
+  url "https://www.obdev.at/downloads/littlesnitch/LittleSnitch-#{version}.dmg"
+  appcast 'https://www.obdev.at/products/littlesnitch/releasenotes.html',
+          checkpoint: 'f66b1e72e3c1a7d245b5748579656eb0deabbc73cecf355a6c0cc901305b4dab'
   name 'Little Snitch'
-  homepage 'http://www.obdev.at/products/littlesnitch/'
+  homepage 'https://www.obdev.at/products/littlesnitch/'
   license :commercial
 
-  installer :manual => 'Little Snitch Installer.app'
+  installer manual: 'Little Snitch Installer.app'
 
-  zap :delete => [
-                  '~/Library/Preferences/at.obdev.LittleSnitchNetworkMonitor.plist',
-                  '~/Library/Application Support/Little Snitch/rules.usr.xpl',
-                  '~/Library/Application Support/Little Snitch/configuration.xpl',
-                  '~/Library/Application Support/Little Snitch/configuration.user.xpl',
-                 ]
+  zap delete: [
+                '/Library/Application Support/Objective Development/Little Snitch',
+                '~/Library/Application Support/Little Snitch',
+                '~/Library/Preferences/at.obdev.LittleSnitchConfiguration.plist',
+                '~/Library/Preferences/at.obdev.LittleSnitchNetworkMonitor.plist',
+                '~/Library/Preferences/at.obdev.LittleSnitchInstaller.plist',
+              ],
+      rmdir:  [
+                '/Library/Application Support/Objective Development',
+              ]
 end

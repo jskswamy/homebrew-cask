@@ -1,13 +1,11 @@
-cask :v1 => 'garagesale' do
-  version '6.9.2'
-  sha256 '034918633b8cac8dd2cbc0613c8ff5be29e6f5dbba909b46d29d61ee0ba1d943'
+cask 'garagesale' do
+  version '7.0.3'
+  sha256 '1d5fafe607455fbbc24666059f0d39559b072f5ee3e8dcd924b5d26d9a6b4a7d'
 
-  url "http://downloads.iwascoding.com/downloads/GarageSale_#{version}.dmg"
-  appcast 'http://www.iwascoding.com/GarageSale/AppCast.php',
-          :sha256 => '3bc0ac9ead57616b1261263671045ca70cedc5061047da72e536c266cc6a2f4d'
+  url "https://downloads.iwascoding.com/downloads/GarageSale_#{version}.zip"
   name 'GarageSale'
-  homepage 'http://www.iwascoding.com/GarageSale/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  homepage 'https://www.iwascoding.com/GarageSale/'
+  license :commercial
 
   app 'GarageSale.app'
 end

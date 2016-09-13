@@ -1,16 +1,23 @@
-cask :v1 => 'clementine' do
-  version '1.2.2'
-  sha256 '7e3dac7fb184058e69afbf9cf68850debbbacdfbbd3023fbcdce7c159a2eed75'
+cask 'clementine' do
+  version '1.3.1'
+  sha256 '825aa66996237e1d3ea2723b24188ead203f298d0bec89f4c3bc6582d9e63e3a'
 
-  # github.com is the official download host per the vendor homepage
+  # github.com/clementine-player/Clementine was verified as official when first introduced to the cask
   url "https://github.com/clementine-player/Clementine/releases/download/#{version}/clementine-#{version}.dmg"
-  appcast 'https://clementine-data.appspot.com/sparkle',
-          :sha256 => 'aa4ef8bb841b9eea028181b5a884073fe51893f4a15d7061eb84f117ff161383'
+  appcast 'https://github.com/clementine-player/Clementine/releases.atom',
+          checkpoint: '4a73a16fbd870e168e0ade5d7680dd1382c59b531ac2969a9868974eea70bbcb'
   name 'Clementine'
-  homepage 'http://www.clementine-player.org/'
+  homepage 'https://www.clementine-player.org/'
   license :gpl
+
+  conflicts_with cask: 'caskroom/versions/clementine-rc'
 
   app 'clementine.app'
 
-  zap :delete => '~/Library/Preferences/org.clementine-player.Clementine.plist'
+  zap delete: [
+                '~/Library/Application Support/Clementine',
+                '~/Library/Caches/org.clementine-player.Clementine',
+                '~/Library/Preferences/org.clementine-player.Clementine.plist',
+                '~/Library/Saved Application State/org.clementine-player.Clementine.savedState',
+              ]
 end

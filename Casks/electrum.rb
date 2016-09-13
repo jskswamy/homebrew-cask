@@ -1,13 +1,13 @@
-cask :v1 => 'electrum' do
-  version '1.9.8'
-  sha256 'ad3818e34a9b3a292257377e337603ed362ff928f2054e92f764d771f0e49ec0'
+cask 'electrum' do
+  version '2.6.4'
+  sha256 'ee0f3f553e4b118b69246c43d4dd7afe2a0bd6876c255e74dec1814b9521e6ec'
 
-  url "https://download.electrum.org/electrum-#{version}.dmg"
-  gpg "#{url}.asc",
-      :key_id => '9914864dfc33499c6ca2beea22453004695506fd'
+  url "https://download.electrum.org/#{version}/electrum-#{version}.dmg"
   name 'Electrum'
-  homepage 'http://electrum.org/'
+  homepage 'https://electrum.org/'
   license :gpl
+  gpg "#{url}.asc",
+      key_id: '6694d8de7be8ee5631bed9502bd5824b7f9470e6'
 
   app 'Electrum.app'
 end

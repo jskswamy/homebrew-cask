@@ -1,14 +1,16 @@
-cask :v1 => 'cloud' do
-  version '3.1.0'
-  sha256 'f412e020c8307ef5872c0c5236f8bc1f1548c47d10b19315aba24ebd391cf293'
+cask 'cloud' do
+  version '4.0.0'
+  sha256 'c6691d553a4e16cebb68615e34bbf4413b8d71449ec862fa9c5f19026d573632'
 
-  # amazonaws.com is the official download host per the vendor homepage
-  url "https://s3.amazonaws.com/downloads.getcloudapp.com/mac/CloudApp-#{version}.zip"
+  # amazonaws.com/downloads.getcloudapp.com was verified as official when first introduced to the cask
+  url "https://s3.amazonaws.com/downloads.getcloudapp.com/mac/CloudApp-#{version}.dmg"
+  appcast 'http://updates.getcloudapp.com/appcast.xml',
+          checkpoint: 'c6410474a46354cef4a42bd88609eb0a671b997c2416628cf583107fb9fd0133'
   name 'CloudApp'
-  homepage 'http://getcloudapp.com/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  homepage 'https://getcloudapp.com/'
+  license :gratis
 
   app 'CloudApp.app'
 
-  zap :delete => '~/Library/Preferences/com.linebreak.CloudAppMacOSX.plist'
+  zap delete: '~/Library/Preferences/com.linebreak.CloudAppMacOSX.plist'
 end

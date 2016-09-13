@@ -1,11 +1,18 @@
-cask :v1 => 'robomongo' do
-  version '0.8.4'
-  sha256 '52976b139e9221c2d1bd888ca2e87e14c134d324523973921123c3fe59821108'
+cask 'robomongo' do
+  version '0.9.0-rc10,33c89ea'
+  sha256 '6532d558f898ded4556fa45c4fc471af520c179180484f44d2cc88572fb88926'
 
-  url "http://robomongo.org/files/mac/Robomongo-#{version}-x86_64.dmg"
+  url "https://download.robomongo.org/#{version.before_comma}/osx/robomongo-#{version.before_comma}-darwin-x86_64-#{version.after_comma}.dmg"
   name 'Robomongo'
-  homepage 'http://robomongo.org'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  homepage 'https://robomongo.org'
+  license :gpl
 
   app 'Robomongo.app'
+
+  uninstall quit: 'Robomongo'
+
+  zap delete: [
+                '~/.config/robomongo',
+                '~/Library/Saved Application State/Robomongo.savedState',
+              ]
 end

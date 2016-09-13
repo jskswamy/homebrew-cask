@@ -1,10 +1,10 @@
-cask :v1 => 'blueharvest' do
-  version '6.1.4'
-  sha256 'e646b82bd619595c8329e1d84ef471f5a42dd1b20ba558bc4a53135291b393d0'
+cask 'blueharvest' do
+  version '6.3.9'
+  sha256 'e7abe0614082a57cddd23d79fb536543fc09434ee30353f210c6f88f0ac9a9b5'
 
-  url "http://zeroonetwenty.com/downloads/BlueHarvest#{version.gsub('.','')}.dmg"
-  appcast 'https://cp37.ezyreg.com/~zeroonet/downloads/versioninfo/sparkle/blueharvest.xml',
-          :sha256 => 'c07a961d3e61d0d607242fdab31118520e31b13e6f4f929060988e2d874029d4'
+  url "http://zeroonetwenty.com/downloads/BlueHarvest#{version.no_dots}.dmg"
+  appcast 'https://cp37.ezyreg.com/~zeroonet/downloads/versioninfo/sparkle/blueharvest6.xml',
+          checkpoint: '9e470fcb5428142efcfb7b46ccb308bce32606a49fa6d2a25d383edaf30b80dc'
   name 'BlueHarvest'
   homepage 'http://zeroonetwenty.com/blueharvest/'
   license :commercial

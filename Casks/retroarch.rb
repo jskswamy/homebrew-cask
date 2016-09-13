@@ -1,17 +1,11 @@
-cask :v1 => 'retroarch' do
-  version '1.0.0.2'
+cask 'retroarch' do
+  version '1.3.6'
+  sha256 '12a9464880343a430e6bdbc330ea9f2c34628210eedbed59be1602280a915a51'
 
-  if MacOS.release <= :snow_leopard
-    sha256 'a3ebc3a46d674433a1bf40c1b948021e752919b4b43da853fd73fb508bf40982'
-    url "http://buildbot.libretro.com/stable/OSX/RetroArch-OSX10.6-x86-v#{version}.zip"
-  else
-    sha256 '9d2232663f5dade1b4f648cc0cf0bb605c630b1c6bcbfe5ddce265ddab0d9d2a'
-    url "http://buildbot.libretro.com/stable/OSX/RetroArch-OSX10.7-x86_64-v#{version}.zip"
-  end
-
+  url "https://buildbot.libretro.com/stable/#{version}/apple/osx/x86_64/RetroArch.dmg"
   name 'RetroArch'
-  homepage 'http://www.libretro.com/'
-  license :unknown # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  homepage 'http://libretro.com'
+  license :gpl
 
   app 'RetroArch.app'
 end

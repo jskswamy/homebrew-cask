@@ -1,34 +1,41 @@
-cask :v1 => 'chefdk' do
-  version '0.4.0-1'
-  sha256 '01b89caff1fb29b4a949666a5016e2455f449fbb7d1027320578b1e043a63e9a'
+cask 'chefdk' do
+  version '0.17.17-1'
+  sha256 'd38fddc706f202bb2871f931001ab12d4a8e0795c694adff9a3962a4aa7807e2'
 
-  # amazonaws is the official download host per the vendor homepage
-  url "https://opscode-omnibus-packages.s3.amazonaws.com/mac_os_x/10.8/x86_64/chefdk-#{version}.dmg"
+  url "https://packages.chef.io/stable/mac_os_x/10.11/chefdk-#{version}.dmg"
+  appcast 'https://www.chef.io/chef/metadata-chefdk?p=mac_os_x&pv=10.11&m=x86_64&v=latest&prerelease=false',
+          checkpoint: '5d2d05c6d645d7e7e9df6fc4b9005f44f70dfa4fb2b72718c863a70d4e59101a'
   name 'Chef Development Kit'
   name 'ChefDK'
-  homepage 'https://downloads.getchef.com/chef-dk/'
+  homepage 'https://downloads.chef.io/chef-dk/'
   license :apache
 
   pkg "chefdk-#{version}.pkg"
 
-  uninstall :pkgutil => 'com.getchef.pkg.chefdk',
-            :delete  => [
-                         '/opt/chefdk/',
-                         '/usr/bin/berks',
-                         '/usr/bin/chef',
-                         '/usr/bin/chef-apply',
-                         '/usr/bin/chef-client',
-                         '/usr/bin/chef-shell',
-                         '/usr/bin/chef-solo',
-                         '/usr/bin/chef-zero',
-                         '/usr/bin/fauxhai',
-                         '/usr/bin/foodcritic',
-                         '/usr/bin/kitchen',
-                         '/usr/bin/knife',
-                         '/usr/bin/ohai',
-                         '/usr/bin/rubocop',
-                         '/usr/bin/shef',
-                         '/usr/bin/strain',
-                         '/usr/bin/strainer',
-                        ]
+  # When updating this cask, please verify the list of paths to delete (and
+  # add to it if necessary):
+  #  find /usr/local/bin -lname '/opt/chefdk/*'
+  # (Source: https://docs.chef.io/install_dk.html#mac-os-x)
+  uninstall pkgutil: 'com.getchef.pkg.chefdk',
+            delete:  [
+                       '/opt/chefdk/',
+                       '/usr/local/bin/berks',
+                       '/usr/local/bin/chef',
+                       '/usr/local/bin/chef-apply',
+                       '/usr/local/bin/chef-client',
+                       '/usr/local/bin/chef-shell',
+                       '/usr/local/bin/chef-solo',
+                       '/usr/local/bin/chef-zero',
+                       '/usr/local/bin/cookstyle',
+                       '/usr/local/bin/delivery',
+                       '/usr/local/bin/fauxhai',
+                       '/usr/local/bin/foodcritic',
+                       '/usr/local/bin/kitchen',
+                       '/usr/local/bin/knife',
+                       '/usr/local/bin/ohai',
+                       '/usr/local/bin/push-apply',
+                       '/usr/local/bin/pushy-client',
+                       '/usr/local/bin/pushy-service-manager',
+                       '/usr/local/bin/rubocop',
+                     ]
 end

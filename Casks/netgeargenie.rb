@@ -1,19 +1,19 @@
-cask :v1 => 'netgeargenie' do
-  version '2.3.1.12(2014-11-27_11-00)'
-  sha256 'fd3fea9f6f71819797133a16cd55412df979d5275c963b76392de66c1bb6a895'
+cask 'netgeargenie' do
+  version '2.4.12(2016-3-10_17_30)'
+  sha256 '077b63dd33ba4c2a992e307e5e6dbdcf048a59b259964c6b2fba0bd4f4264d6f'
 
   url 'http://updates1.netgear.com/netgeargenie/mac/update/NETGEARGenieInstaller.dmg'
   name 'NETGEARGenie'
-  homepage 'http://www.netgear.com/home/discover/apps/genie.aspx'
+  homepage 'https://www.netgear.com/home/discover/apps/genie.aspx'
   license :gratis
 
   pkg "NETGEAR_Genie_Installer_#{version}.pkg"
 
-  uninstall :quit    => 'com.yourcompany.NETGEARGenie',
-            :pkgutil => 'com.netgear.netgearGenie.NETGEARGenie.pkg'
+  uninstall quit:    'com.yourcompany.NETGEARGenie',
+            pkgutil: 'com.netgear.netgearGenie.NETGEARGenie.pkg'
 
-  zap       :delete  => [
-                         '~/Library/Application Support/NETGEARGenie',
-                         '~/Library/Saved Application State/com.yourcompany.NETGEARGenie.savedState'
-                        ]
+  zap       delete: [
+                      '~/Library/Application Support/NETGEARGenie',
+                      '~/Library/Saved Application State/com.yourcompany.NETGEARGenie.savedState',
+                    ]
 end

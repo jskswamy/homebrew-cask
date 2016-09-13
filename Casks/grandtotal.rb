@@ -1,11 +1,15 @@
-cask :v1 => 'grandtotal' do
-  version :latest
-  sha256 :no_check
+cask 'grandtotal' do
+  version '4.2.5'
+  sha256 '1d090aa3113b9eda07a015311fa5ce4519b58662aebbb029d86e2f9b70044697'
 
-  url 'http://www.mediaatelier.com/GrandTotal3/download.php'
-  appcast 'http://mediaatelier.com/GrandTotal3/feed.php'
-  homepage 'http://www.mediaatelier.com/GrandTotal3/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  url "https://mediaatelier.com/GrandTotal#{version.major}/GrandTotal_#{version}.zip"
+  appcast "https://mediaatelier.com/GrandTotal#{version.major}/feed.php",
+          checkpoint: '6868ecc7c06324327f66cb2a5ff28ca3cef67b1ef15cae440584bfbfd190653e'
+  name 'GrandTotal'
+  homepage 'https://www.mediaatelier.com/GrandTotal4/'
+  license :commercial
+
+  depends_on macos: '>= :mountain_lion'
 
   app 'GrandTotal.app'
 end

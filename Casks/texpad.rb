@@ -1,13 +1,20 @@
-cask :v1 => 'texpad' do
-  version '1.6.14'
-  sha256 '18fcbe93e77e5b5bc848172546962fcde397a26fd543efcc1054004369192f7e'
+cask 'texpad' do
+  if MacOS.version <= :mountain_lion
+    version '1.7.21'
+    sha256 'cae312b89d25752917bf66572fd1c6b6722097b651abe9a1a1b399dc36493512'
+  else
+    version '1.7.28'
+    sha256 'f59a83923c70dd60ee2ad0acb07814b04ccc9b2ecea6d33d2340f49c54df70cc'
+  end
 
-  url "https://cloud.texpadapp.com/bundles/Texpad_#{version.gsub('.','_')}.zip"
+  url "https://download.texpadapp.com/apps/osx/updates/Texpad_#{version.dots_to_underscores}.zip"
   appcast 'https://www.texpadapp.com/static-collected/upgrades/texpadappcast.xml',
-          :sha256 => 'a8522a4533df93fbf9d50489aa5f1c91bb01916faebd81ee20f56ea96dad8d97'
+          checkpoint: 'cfcc73295708a553ca7a637d5d465c038cd1b547fc604a0cebb2d05df70816dc'
   name 'Texpad'
   homepage 'https://www.texpadapp.com/osx'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  license :commercial
+
+  depends_on macos: '>= :snow_leopard'
 
   app 'Texpad.app'
 end

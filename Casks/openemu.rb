@@ -1,13 +1,45 @@
-cask :v1 => 'openemu' do
-  version '1.0.4'
-  sha256 'c9c3abc2acea4ed4c1e2b62fd6868feae1719251428a79803d9aa8a0de4474ef'
+cask 'openemu' do
+  version '2.0.3'
+  sha256 'c75fc89edf981431ce813e2b0dd9d1b466f55ebbf3aa8b5aec9485a0e2d38196'
 
-  # github.com is the official download host per the vendor homepage
+  # github.com/OpenEmu/OpenEmu was verified as official when first introduced to the cask
   url "https://github.com/OpenEmu/OpenEmu/releases/download/v#{version}/OpenEmu_#{version}.zip"
-  appcast 'https://raw.github.com/OpenEmu/OpenEmu-Update/master/appcast.xml',
-          :sha256 => '0bc7baf23728b6c53a7d3c502fff9ccb0df150446a1164dc9e8ebcefc1c5a619'
+  appcast 'https://github.com/OpenEmu/OpenEmu/releases.atom',
+          checkpoint: '37e83ba7dbe779068a0b10c575e6525d8bf9f2a1d50e922b18c2b57ed29741d4'
+  name 'OpenEmu'
   homepage 'http://openemu.org/'
   license :oss
 
+  depends_on macos: '>= :el_capitan'
+
   app 'OpenEmu.app'
+
+  zap delete: [
+                '~/Library/Application Support/OpenEmu',
+                '~/Library/Application Support/org.openemu.OEXPCCAgent.Agents',
+                '~/Library/Caches/org.openemu.OpenEmu',
+                '~/Library/Preferences/org.openemu.Atari800.plist',
+                '~/Library/Preferences/org.openemu.Bliss.plist',
+                '~/Library/Preferences/org.openemu.CrabEmu.plist',
+                '~/Library/Preferences/org.openemu.desmume.plist',
+                '~/Library/Preferences/org.openemu.FCEU.plist',
+                '~/Library/Preferences/org.openemu.Gambatte.plist',
+                '~/Library/Preferences/org.openemu.GenesisPlus.plist',
+                '~/Library/Preferences/org.openemu.Higan.plist',
+                '~/Library/Preferences/org.openemu.Mednafen.plist',
+                '~/Library/Preferences/org.openemu.Mupen64Plus.plist',
+                '~/Library/Preferences/org.openemu.NeoPop.plist',
+                '~/Library/Preferences/org.openemu.Nestopia.plist',
+                '~/Library/Preferences/org.openemu.O2EM.plist',
+                '~/Library/Preferences/org.openemu.OpenEmu.plist',
+                '~/Library/Preferences/org.openemu.Picodrive.plist',
+                '~/Library/Preferences/org.openemu.PPSSPP.plist',
+                '~/Library/Preferences/org.openemu.ProSystem.plist',
+                '~/Library/Preferences/org.openemu.SNES9x.plist',
+                '~/Library/Preferences/org.openemu.Stella.plist',
+                '~/Library/Preferences/org.openemu.TwoMbit.plist',
+                '~/Library/Preferences/org.openemu.VecXGL.plist',
+                '~/Library/Preferences/org.openemu.VisualBoyAdvance.plist',
+                '~/Library/Saved Application State/org.openemu.OpenEmu.savedState',
+              ]
 end

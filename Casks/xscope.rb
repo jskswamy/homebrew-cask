@@ -1,13 +1,13 @@
-cask :v1 => 'xscope' do
-  version '4.1'
-  sha256 '7323455710792157878a4c3eb5b1d2884061557fff6739c3a82a8dca122f5f83'
+cask 'xscope' do
+  version '4.2'
+  sha256 'f976a94801caaccd445fa9a5afe6f794e4caa95cd39c5e1bf790931b1710adf8'
 
-  url "http://iconfactory.com/assets/software/xscope/xScope-#{version.sub(%r{^(\d+\.\d+).*},'\1')}.zip"
-  appcast 'http://iconfactory.com/appcasts/xScope/appcast.xml',
-          :sha256 => '419794f0698b7ddb0a433e712d68064ce5907253ff849f22de95354d3e7eaa2a'
+  url "https://iconfactory.com/assets/software/xscope/xScope-#{version}.zip"
+  appcast 'https://iconfactory.com/appcasts/xScope/appcast.xml',
+          checkpoint: '6eec33a8cd45abf63e706e6292d25c0ae4cbbf273cafece2ffe3b73992c74cb0'
   name 'xScope'
-  homepage 'http://iconfactory.com/software/xscope'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  homepage 'https://iconfactory.com/software/xscope'
+  license :commercial
 
   app 'xScope.app'
 end

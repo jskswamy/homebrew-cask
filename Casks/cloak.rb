@@ -1,9 +1,10 @@
-cask :v1 => 'cloak' do
-  version '2.0.9'
-  sha256 '18ebfe76aeee4da03546ed4969355202b7aec846b82bbea187dbc5891de35bb0'
+cask 'cloak' do
+  version '2.1.0'
+  sha256 'bd7e72f863290434b962a7db52a14eea73521a30cf28e883779c840e9cb3552c'
 
-  # amazonaws.com is the official download host per the vendor homepage
-  url "https://s3.amazonaws.com/static.getcloak.com/osx/updates/Release/Cloak-#{version}.dmg"
+  url "https://static.getcloak.com/downloads/osx/updates/Release/Cloak-#{version}.dmg"
+  appcast 'https://www.getcloak.com/updates/osx/public/',
+          checkpoint: '521c0cc48cac8bea58954bef1f484f9d09cafa501bdc687a44894be1ccd73176'
   name 'Cloak'
   homepage 'https://www.getcloak.com'
   license :gratis

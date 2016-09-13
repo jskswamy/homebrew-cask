@@ -1,11 +1,15 @@
-cask :v1 => 'the-unarchiver' do
-  version '3.9.1'
-  sha256 '34fa3410237e17b2cdceb801a84ed8db93c74ac0db551ffe65913c2134ebbf05'
+cask 'the-unarchiver' do
+  version '3.11.1'
+  sha256 '2b9e1c0f6bcad958c19bfa0b5b1c59ad0681574100918004c0bcad2e43dc0761'
 
-  # googlecode.com is the official download host per the vendor homepage
-  url "https://theunarchiver.googlecode.com/files/TheUnarchiver#{version}.zip"
-  homepage 'http://unarchiver.c3.cx/'
+  url "https://unarchiver.c3.cx/downloads/TheUnarchiver#{version}.dmg"
+  appcast 'https://unarchiver.c3.cx/updates.rss',
+          checkpoint: '12b3e96559528c84b7353ce25f66d685b3813a4f86b3802835988f9b90084228'
+  name 'The Unarchiver'
+  homepage 'https://unarchiver.c3.cx/unarchiver'
   license :oss
+
+  auto_updates true
 
   app 'The Unarchiver.app'
 end

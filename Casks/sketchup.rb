@@ -1,17 +1,23 @@
-cask :v1 => 'sketchup' do
+cask 'sketchup' do
   version :latest
   sha256 :no_check
 
-  # downloads can be found at http://www.sketchup.com/download/all
-  # trimble.com is the official download host per the vendor homepage
+  # downloads can be found at https://www.sketchup.com/download/all
+  # dl.trimble.com/sketchup was verified as official when first introduced to the cask
   url 'https://dl.trimble.com/sketchup/SketchUpMake-en.dmg'
-  homepage 'http://www.sketchup.com/intl/en/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  name 'SketchUp'
+  homepage 'https://www.sketchup.com/'
+  license :gratis
 
-  suite 'SketchUp 2015'
+  suite 'SketchUp 2016'
 
-  zap :delete => [
-                  '~/Library/Application Support/SketchUp 2015',
-                  '~/Library/Caches/com.sketchup.SketchUp.2015',
-                 ]
+  zap delete: [
+                '~/Library/Application Support/SketchUp 2016',
+                '~/Library/Caches/com.sketchup.SketchUp.2016',
+                '~/Library/Application Support/Trimble Connect for SketchUp',
+                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.sketchup.sketchup.2016.sfl',
+                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.sketchup.stylebuilder.2016.sfl',
+                '~/Library/Cookies/com.sketchup.SketchUp.2016.binarycookies',
+                '~/Library/Preferences/com.sketchup.SketchUp.2016.plist',
+              ]
 end

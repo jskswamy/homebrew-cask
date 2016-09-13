@@ -1,11 +1,11 @@
-cask :v1 => 'nodebox' do
-  version '3.0.39'
-  sha256 '44620d6554c467863c0d68d5e90ff3edf0c7f9ab6c5614cdef2fcb54f9044fb4'
+cask 'nodebox' do
+  version '3.0.45'
+  sha256 '076c35226af46fc3a5c99488cef642cd857c4a7c32ce23ac7b2ea2ee5e8a687d'
 
   url "https://secure.nodebox.net/downloads/NodeBox-#{version}.zip"
   name 'NodeBox'
-  homepage 'http://nodebox.net/node/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  homepage 'https://www.nodebox.net/node/'
+  license :gpl
 
   app 'NodeBox.app'
 end

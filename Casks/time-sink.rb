@@ -1,11 +1,15 @@
-cask :v1 => 'time-sink' do
-  version :latest
-  sha256 :no_check
+cask 'time-sink' do
+  version '1.2.6'
+  sha256 '4bdd455090433316ec2006fa0a98988c7d445f8533415b2792525f2bca06aa86'
 
-  url 'http://manytricks.com/download/timesink'
+  url 'https://manytricks.com/download/timesink'
+  appcast 'https://manytricks.com/timesink/appcast.xml',
+          checkpoint: '31adc137baa25f72cb6609ac8048d2a502c56ab8a2dfcf1311cb41a872a99381'
   name 'Time Sink'
-  homepage 'http://manytricks.com/timesink/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  homepage 'https://manytricks.com/timesink/'
+  license :commercial
+
+  auto_updates true
 
   app 'Time Sink.app'
 end

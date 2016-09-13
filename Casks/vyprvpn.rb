@@ -1,10 +1,10 @@
-cask :v1 => 'vyprvpn' do
-  version '2.6.1.2422'
-  sha256 '6097c9660fcc496bbaa77bc870ff2483aa92c7ce4bea409fb98c8b635bac2710'
+cask 'vyprvpn' do
+  version '2.11.0.4583'
+  sha256 '54ee2233f097b891af6e6b2da54940a8e838cba887dcec834219d1476bff099c'
 
   url "https://www.goldenfrog.com/downloads/vyprvpn/desktop/mac/production/#{version}/VyprVPN_v#{version}.dmg"
   name 'VyprVPN'
-  homepage 'http://www.goldenfrog.com/vyprvpn'
+  homepage 'https://www.goldenfrog.com/vyprvpn'
   license :commercial
 
   app 'VyprVPN.app'

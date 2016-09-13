@@ -1,20 +1,22 @@
-cask :v1 => 'prey' do
-  version '1.3.6'
-  sha256 'd6c1c5dac39b0404a194290e4b0e3b975debfd32e174327aa14a345b5a8e8262'
+cask 'prey' do
+  version '1.5.1'
+  sha256 '8c9e69c21d2bfb101745681fd935df308899828effda21e28be8da3ffb174746'
 
-  # amazonaws.com is the official download host per the vendor homepage
-  url "https://s3.amazonaws.com/prey-releases/node-client/#{version}/prey-mac-#{version}-x64.pkg"
+  # prey-releases.s3.amazonaws.com was verified as official when first introduced to the cask
+  url "https://prey-releases.s3.amazonaws.com/node-client/#{version}/prey-mac-#{version}-x86.pkg"
+  name 'Prey'
   homepage 'https://preyproject.com'
   license :gpl
 
-  pkg "prey-mac-#{version}-x64.pkg"
+  pkg "prey-mac-#{version}-x86.pkg"
 
-  uninstall :pkgutil => 'com.prey.agent',
-            :launchctl => 'com.prey.agent'
+  uninstall pkgutil:   'com.prey.agent',
+            launchctl: 'com.prey.agent'
 
   caveats <<-EOS.undent
-    To complete installation, Prey requires an API key. It may be set
-    as an environment variable as follows:
+    Prey requires your API key, found in the bottom-left corner of
+    the Prey web account Settings page, to complete installation.
+    The API key may be set as an environment variable as follows:
 
       API_KEY="abcdef123456" brew cask install prey
   EOS

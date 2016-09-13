@@ -1,12 +1,15 @@
-cask :v1 => 'fluid' do
-  version '1.8.3'
-  sha256 '56438a946b281b009626a06cb099a7198e948bc8bef18a19c1bceb28bbe4d619'
+cask 'fluid' do
+  version '1.8.5'
+  sha256 'aa644629b2f3ccf79e0fc88cd59d747d84e8ad330e5d6fc3d7e09f68214b67b5'
 
   url "http://fluidapp.com/dist/Fluid_#{version}.zip"
   appcast 'http://fluidapp.com/appcast/fluid1.rss',
-          :sha256 => '260c43831d82b9fa593d9f32cca7bc61b594f5993908b104601ed866ee7c518a'
+          checkpoint: 'a4f30ede491c600675f005416f7c76dd2945daeb71d5ecb1f7621bedc0416e30'
+  name 'Fluid'
   homepage 'http://fluidapp.com/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  license :freemium
+
+  depends_on macos: '>= :snow_leopard'
 
   app 'Fluid.app'
 end

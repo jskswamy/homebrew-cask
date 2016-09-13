@@ -1,12 +1,13 @@
-cask :v1 => 'liteicon' do
-  version '3.5.4'
-  sha256 '61062d4a4d771eb31617c3caba50f22254ac0d31709909ee1f4ca5f3aaf3a7db'
+cask 'liteicon' do
+  version '3.6.3'
+  sha256 '3be04be9cd4b566485d1b60937aaa8e2981771193c96b37314a876a9a99c330d'
 
-  url "http://www.freemacsoft.net/downloads/LiteIcon_#{version}.zip"
-  appcast 'http://www.freemacsoft.net/liteicon/updates.xml',
-          :sha256 => '410b87eda513bf954ce3c4ae7258b3ca02d10557e92f8cbf04a8df37757dc560'
-  homepage 'http://www.freemacsoft.net/liteicon/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  url "https://www.freemacsoft.net/downloads/LiteIcon_#{version}.zip"
+  appcast 'https://freemacsoft.net/liteicon/updates.xml',
+          checkpoint: '4b8e5c1a05b42ce6bb81f749d33a321a9f8b3a66cfbd47511b3dae13e471ab96'
+  name 'LiteIcon'
+  homepage 'https://www.freemacsoft.net/liteicon/'
+  license :gratis
 
   app 'LiteIcon.app'
 end

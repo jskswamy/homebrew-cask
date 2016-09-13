@@ -1,10 +1,11 @@
-cask :v1 => 'seafile-client' do
-  version '4.0.6.1'
-  sha256 'ec1ed542d3640a702774abb3afb47a49abb146bab506d410299abd92e725c1a9'
+cask 'seafile-client' do
+  version '5.1.4'
+  sha256 'e3e36be4fa239f0174c00b7799c4d6aeec435212abc27f9981bb9af7d96fdb0f'
 
-  # bitbucket.org is the official download host per the vendor homepage
-  url "https://bitbucket.org/haiwen/seafile/downloads/seafile-client-#{version}.dmg"
-  homepage 'http://seafile.com/'
+  # bintray.com/artifact/download/seafile-org was verified as official when first introduced to the cask
+  url "https://bintray.com/artifact/download/seafile-org/seafile/seafile-client-#{version}.dmg"
+  name 'Seafile Client'
+  homepage 'https://seafile.com/'
   license :gpl
 
   app 'Seafile Client.app'

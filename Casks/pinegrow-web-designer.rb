@@ -1,14 +1,12 @@
-cask :v1 => 'pinegrow-web-designer' do
-  version :latest
-  sha256 :no_check
+cask 'pinegrow-web-designer' do
+  version '2.81'
+  sha256 '76d14cc1947d97cfb58f9879956ffc8ee04582fbdff3131a6b11f4dabe7c2e25'
 
-  # amazonaws.com is the official download host per the vendor homepage
-  url 'https://pinegrow.s3.amazonaws.com/PinegrowMac.zip'
-  name 'Pinegrow'
-  name 'Pinegrow Web Editor'
+  # pinegrow.s3.amazonaws.com was verified as official when first introduced to the cask
+  url "https://pinegrow.s3.amazonaws.com/PinegrowMac.#{version}.dmg"
   name 'Pinegrow Web Designer'
   homepage 'http://pinegrow.com/'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  license :commercial
 
   app 'Pinegrow Web Designer.app'
 end

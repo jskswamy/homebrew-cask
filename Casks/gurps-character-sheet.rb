@@ -1,9 +1,9 @@
-cask :v1 => 'gurps-character-sheet' do
-  version '4.0.1'
-  sha256 'ddff9b883b29be7dce0798cfedfe48c54d02a2adb16dc1e60cbcaa37d2ef902e'
+cask 'gurps-character-sheet' do
+  version '4.4.1'
+  sha256 '60dade1ab02a478158ec9926ac5b8b1e08f316a08344da415aa947563c6074df'
 
-  # sourceforge.net is the official download host per the vendor homepage
-  url "http://downloads.sourceforge.net/project/gcs-java/gcs-#{version}-mac.zip"
+  url "http://gurpscharactersheet.com/downloads/#{version}/gcs-#{version}-mac.zip"
+  name 'GURPS Character Sheet'
   homepage 'http://gurpscharactersheet.com'
   license :mpl
 

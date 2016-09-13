@@ -1,12 +1,13 @@
-cask :v1 => 'hive' do
-  version '1.4.1'
-  sha256 '380f056ee5f88c86e69f1f08723db341aa482f36eb048972664d661f44efa58b'
+cask 'hive' do
+  version '1.5'
+  sha256 'fce5783488c9781df85185f2707dc4aa14b344d75d19b525bc41bafeaf976901'
 
-  # github.com is the official download host per the vendor homepage
-  url "https://github.com/hivewallet/hive-osx/releases/download/#{version}/Hive-#{version}.zip"
-  appcast 'https://hivewallet.com/hive-osx-appcast.xml',
-          :sha256 => '53a58f4b4bc888cde3e036ee3b09b44f0ba19b321492c82a93acc01891d310e1'
-  homepage 'http://www.hivewallet.com'
+  # github.com/hivewallet/hive-mac was verified as official when first introduced to the cask
+  url "https://github.com/hivewallet/hive-mac/releases/download/#{version}/Hive-#{version}.zip"
+  appcast 'https://github.com/hivewallet/hive-mac/releases.atom',
+          checkpoint: '910983133c5e81dbb151627938adc2cfef7e0a53d7c72609499b035e9f482ca5'
+  name 'Hive'
+  homepage 'https://mac.hivewallet.com'
   license :gpl
 
   app 'Hive.app'

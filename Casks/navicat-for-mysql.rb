@@ -1,12 +1,11 @@
-cask :v1 => 'navicat-for-mysql' do
-  version '11.1.7'
-  sha256 'e02a0fbd93b31a3ad1da2ce22d2e36570693f9e0baae3727df462915b9a17a55'
+cask 'navicat-for-mysql' do
+  version '11.2.13'
+  sha256 'aacd3aabacd57b8cef0bcdd4c96578921c3bba91c8ecee7559c8e5e59f8b9429'
 
-  url "http://download.navicat.com/download/navicat#{version.sub(%r{^(\d+)\.(\d+).*},'\1\2')}_mysql_en.dmg"
+  url "http://download.navicat.com/download/navicat#{version.major_minor.no_dots}_mysql_en.dmg"
   name 'Navicat for MySQL'
-  homepage 'http://www.navicat.com/products/navicat-for-mysql'
+  homepage 'https://www.navicat.com/products/navicat-for-mysql'
   license :commercial
-  tags :vendor => 'Navicat'
 
   app 'Navicat for MySQL.app'
 end

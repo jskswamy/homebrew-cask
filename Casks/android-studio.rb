@@ -1,20 +1,25 @@
-cask :v1 => 'android-studio' do
-  version '1.0.2'
-  sha256 'bfbbf184997bb50d14e29efdab89935118bb1dc9c3a4901396782011d21cd797'
+cask 'android-studio' do
+  version '2.1.3.0,143.3101438'
+  sha256 '354c9cd25983a1df92935e9a5e6411b0b40505b9a9d0b2d900b855af20c4480e'
 
-  # google.com is the official download host per the vendor homepage
-  url "https://dl.google.com/dl/android/studio/ide-zips/#{version}/android-studio-ide-135.1653844-mac.zip"
+  # google.com/dl/android/studio was verified as official when first introduced to the cask
+  url "https://dl.google.com/dl/android/studio/ide-zips/#{version.before_comma}/android-studio-ide-#{version.after_comma}-mac.zip"
   name 'Android Studio'
   homepage 'https://developer.android.com/sdk/'
   license :apache
 
   app 'Android Studio.app'
 
-  caveats <<-EOS.undent
-    If you have Java 7 or above installed, you may want to use it as Android Studio JDK, for example:
+  zap delete: [
+                "~/Library/Preferences/AndroidStudio#{version.major_minor}",
+                '~/Library/Preferences/com.google.android.studio.plist',
+                "~/Library/Application Support/AndroidStudio#{version.major_minor}",
+                "~/Library/Logs/AndroidStudio#{version.major_minor}",
+                "~/Library/Caches/AndroidStudio#{version.major_minor}",
+              ],
+      rmdir:  '~/AndroidStudioProjects'
 
-    export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk
-
-    Please take a look at this post: http://tools.android.com/recent/androidstudio1rc3_releasecandidate3released
-  EOS
+  caveats do
+    depends_on_java
+  end
 end

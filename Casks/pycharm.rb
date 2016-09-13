@@ -1,15 +1,22 @@
-cask :v1 => 'pycharm' do
-  version '4.0.4'
-  sha256 '56eeeb15a1b0f2b0fbbb9fc918f3b6eb5ba5f9bbbfcb2b032864fbfdbc4c5b87'
+cask 'pycharm' do
+  version '2016.2.2'
+  sha256 '33a3a046ec6743b41b5899c404ae7e6fb3a076fe6063afa4190170171bf23878'
 
   url "https://download.jetbrains.com/python/pycharm-professional-#{version}.dmg"
   name 'PyCharm'
-  homepage 'http://www.jetbrains.com/pycharm/'
+  homepage 'https://www.jetbrains.com/pycharm/'
   license :commercial
+
+  conflicts_with cask: 'pycharm-eap'
 
   app 'PyCharm.app'
 
-  postflight do
-    plist_set(':JVMOptions:JVMVersion', '1.6+')
-  end
+  uninstall delete: '/usr/local/bin/charm'
+
+  zap delete: [
+                "~/Library/Preferences/PyCharm#{version.major_minor}",
+                "~/Library/Application Support/PyCharm#{version.major_minor}",
+                "~/Library/Caches/PyCharm#{version.major_minor}",
+                "~/Library/Logs/PyCharm#{version.major_minor}",
+              ]
 end

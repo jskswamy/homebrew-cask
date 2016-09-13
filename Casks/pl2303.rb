@@ -1,16 +1,19 @@
-cask :v1 => 'pl2303' do
-  version '1.5.1'
-  sha256 'b6658605409e9aa63bca7a1ac94c989cc01cdf375f6881ade0ed5bb9694c22cc'
+cask 'pl2303' do
+  version '1.6.1_20160309'
+  sha256 '14868e4a3c38904760d3445c37bbb5ca2f1024498547645147abbabfcb52eb87'
 
-  url "http://prolificusa.com/files/md_PL2303_MacOSX-10_6up_v#{version.gsub('.','_')}.zip"
-  homepage 'http://www.prolificusa.com'
+  url "http://www.prolific.com.tw/UserFiles/files/PL2303_MacOSX_#{version.dots_to_underscores}.zip"
+  name 'Prolific USB-Serial Cable driver'
+  homepage 'http://www.prolific.com.tw'
   license :closed
 
-  pkg "PL2303_MacOSX_v#{version.gsub('.','_')}.pkg"
+  pkg "PL2303_MacOSX_#{version}.pkg"
 
-  uninstall :delete => [
-                        '/System/Library/Extensions/ProlificUsbSerial.kext',
-                        '/var/db/receipts/*PL2303*.*',
-                        '/var/db/receipts/*ProlificUSbSerial*.*',
-                       ]
+  uninstall pkgutil: "com.prolific.prolificUsbserialCableDriverV#{version.dots_to_underscores}.ProlificUsbSerial.pkg",
+            kext:    'com.prolific.driver.PL2303',
+            delete:  [
+                       '/Library/Extensions/ProlificUsbSerial.kext',
+                       '/var/db/receipts/*PL2303*.*',
+                       '/var/db/receipts/*ProlificUSbSerial*.*',
+                     ]
 end

@@ -1,10 +1,18 @@
-cask :v1 => 'xmind' do
-  version '3.5.1'
-  sha256 '9b57dcfd1a2c0a80ff9faf296560594cd25e65e50916c0dbb96b165ecc690801'
+cask 'xmind' do
+  version '3.6.51'
+  sha256 '9a7d31d61427dcbef5d224c8dc545335bf8ceee6346d224014b535fe1ad9fdf9'
 
-  url "http://dl3.xmind.net/xmind-macosx-#{version}.201411201906.dmg"
-  homepage 'http://www.xmind.net'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  url 'http://www.xmind.net/xmind/downloads/xmind-7.5-update1-macosx.dmg'
+  name 'XMind'
+  homepage 'https://www.xmind.net'
+  license :freemium
+
+  depends_on macos: '>= :snow_leopard'
 
   app 'XMind.app'
+
+  zap delete: [
+                '~/Library/XMind',
+                '~/Library/Saved Application State/org.xmind.cathy.application.savedState',
+              ]
 end

@@ -1,14 +1,28 @@
-cask :v1 => 'coteditor' do
-  version '2.0.3'
-  sha256 'b656aa0b6526c89d7d52cf12b715cf529f8e5048c7e13720673c3e32318a26d8'
+cask 'coteditor' do
+  if MacOS.version <= :snow_leopard
+    version '1.3.1'
+    sha256 '5c871bd9de30fc3c76fc66acb4ea258d4d3762ae341181d65a7ef1f8de4751c5'
+    # github.com/coteditor/CotEditor was verified as official when first introduced to the cask
+    url "https://github.com/coteditor/CotEditor/releases/download/#{version}/CotEditor_#{version}_For10.4.dmg"
+  elsif MacOS.version <= :lion
+    version '1.5.4'
+    sha256 '444133083698c7c94c2b029644f39a0e36982ae34c24745789fa890626188347'
+    # github.com/coteditor/CotEditor was verified as official when first introduced to the cask
+    url "https://github.com/coteditor/CotEditor/releases/download/#{version}/CotEditor_#{version}.dmg"
+  else
+    version '2.5.6'
+    sha256 '36cf286ddfe9c00fdaf1723de02f9390f87d582d081fc7049f70c7b5d2992ead'
+    # github.com/coteditor/CotEditor was verified as official when first introduced to the cask
+    url "https://github.com/coteditor/CotEditor/releases/download/#{version}/CotEditor_#{version}.dmg"
+  end
 
-  # github.com is the official download host per the vendor homepage
-  url "https://github.com/coteditor/CotEditor/releases/download/#{version}/CotEditor_#{version}.dmg"
-  appcast 'http://coteditor.com/appcast.xml',
-          :sha256 => '86c24c497701e51df3e0b35e72be5f1cc1d2e3b307a8deb0a188c3443ccd553f'
+  appcast 'https://github.com/coteditor/CotEditor/releases.atom',
+          checkpoint: '5268af6fb256739cd81e610a4c814042a84c13621f299ecf2cd9bf9c307e6400'
   name 'CotEditor'
-  homepage 'http://coteditor.com/'
-  license :gpl
+  homepage 'https://coteditor.com/'
+  license :apache
 
   app 'CotEditor.app'
+
+  zap delete: '~/Library/Containers/com.coteditor.CotEditor'
 end

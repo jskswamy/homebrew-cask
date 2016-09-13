@@ -1,11 +1,13 @@
-cask :v1 => 'jump-desktop' do
-  version :latest
-  sha256 :no_check
+cask 'jump-desktop' do
+  version '6.0.3'
+  sha256 'b4776b0bf2dc2932e899690dc041a6e8ee7337f50ff39783f3c40964c6c1e010'
 
-  url 'http://jumpdesktop.com/downloads/jdmac'
+  url 'https://jumpdesktop.com/downloads/jdmac'
+  appcast 'https://jumpdesktop.com/downloads/viewer/jdmac-web-appcast.xml',
+          checkpoint: 'c1ec2782d66c15a6128dc3506d0f2d52d3959ac7a7f4632e295649e76ad6b2ab'
   name 'Jump Desktop'
-  homepage 'http://jumpdesktop.com/#jdmac'
-  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
+  homepage 'https://jumpdesktop.com/#jdmac'
+  license :commercial
 
   app 'Jump Desktop.app'
 end

@@ -1,21 +1,21 @@
-cask :v1 => 'phpstorm' do
-  version '8.0.3'
-  sha256 '6c9b36ebfed67f5ec2e6a96f2f61826653b312686ecd8a298e0e2ca3e3a09559'
+cask 'phpstorm' do
+  version '2016.2.1'
+  sha256 '8ca63d50da56d1ab2663406922e10c88bb46c3c2569b2ff434aa8a72014237e5'
 
-  url "http://download.jetbrains.com/webide/PhpStorm-#{version}.dmg"
-  name 'PhpStorm'
-  homepage 'http://www.jetbrains.com/phpstorm/'
+  url "https://download.jetbrains.com/webide/PhpStorm-#{version}.dmg"
+  name 'JetBrains PhpStorm'
+  homepage 'https://www.jetbrains.com/phpstorm/'
   license :commercial
 
   app 'PhpStorm.app'
 
-  postflight do
-    plist_set(':JVMOptions:JVMVersion', '1.6+')
-  end
+  uninstall delete: '/usr/local/bin/pstorm'
 
-  zap :delete => [
-                  '~/Library/Application Support/WebIde80',
-                  '~/Library/Preferences/WebIde80',
-                  '~/Library/Preferences/com.jetbrains.PhpStorm.plist',
-                 ]
+  zap delete: [
+                "~/Library/Preferences/PhpStorm#{version.major_minor}",
+                "~/Library/Caches/PhpStorm#{version.major_minor}",
+                "~/Library/Logs/PhpStorm#{version.major_minor}",
+                "~/Library/Application Support/PhpStorm#{version.major_minor}",
+                # TODO: expand/glob for '~/Library/Preferences/jetbrains.phpstorm.*.plist',
+              ]
 end
